@@ -1,5 +1,5 @@
 {
-	"name": "silverstripe/testmailer",
+	"name": "sunnysideup/testmailer",
 	"type": "silverstripe-module",
 	"description": "add a mail to file mail class, so that you can test e-mail functionality in your silverstripe website without mailing anyone",
 	"homepage": "http://www.silverstripe-webdevelopment.com",
