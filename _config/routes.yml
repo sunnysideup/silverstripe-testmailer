@@ -1,0 +1,7 @@
+---
+Name: testmailer_routes
+After: 'cms/*','framework/*'
+---
+Director:
+  rules:
+    'testifemailsareworking//$Action/$ID/$Batch': 'TestIfEmailsAreWorking'

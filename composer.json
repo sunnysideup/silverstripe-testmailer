@@ -3,7 +3,7 @@
 	"type": "silverstripe-module",
 	"description": "add a mail to file mail class, so that you can test e-mail functionality in your silverstripe website without mailing anyone",
 	"homepage": "http://www.silverstripe-webdevelopment.com",
-	"keywords": ["testmailer", "silverstripe"],
+	"keywords": ["testmailer", "silverstripe", "email", "mail", "mailer", "smtp"],
 	"license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
 	"authors":[
 		{
@@ -14,7 +14,7 @@
 		}
 	],
 	"require":{
-		"silverstripe/framework": "~2.4"
+		"silverstripe/framework": "~3.1"
 	},
 	"extra": {
 		"installer-name": "testmailer"

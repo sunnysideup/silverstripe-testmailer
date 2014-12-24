@@ -14,10 +14,7 @@ class TestIfEmailsAreWorking extends Controller {
 			return Security::permissionFailure($this);
 		}
 		$email = $request->requestVar($name = "email");
-		if(!$email && !Email::validEmailAddress($email)) {
-			user_error("make sure to add a valid email - current one is '".$email."' (you can add the email like this: ".$request->getURL()."?email=myemail@test.com", E_USER_WARNING);
-		}
-		else {
+		if($email && Email::validEmailAddress($email)) {
 			$number = rand(0, 10000);
 			$from = Email::getAdminEmail();
 			$to = $email;
@@ -26,17 +23,29 @@ class TestIfEmailsAreWorking extends Controller {
 			$htmlBody = "<h1>test mail ID".$number.'</h1>';
 			$basicMailOk = @mail($email, $subject, $body);
 			if($basicMailOk) {
-				debug::show("basic mail has been sent with ID".$number);
+				DB::alteration_message("basic mail (using the PHP mail function)  has been sent with ID: ".$number, "created");
 			}
 			else {
-				debug::show("basic mail has * NOT * been sent with ID".$number);
+				DB::alteration_message("basic mail (using the PHP mail function) has * NOT * been sent with ID:".$number, "deleted");
 			}
 			$e = new Email($from, $to, $subject, $body);
-			$e->send();
-			debug::show("standard email has been sent with ID".$number);
+			if($e->send()) {
+				DB::alteration_message("standard Silverstripe email has been sent with ID: ".$number, "created");
+			}
+			else {
+				DB::alteration_message("standard Silverstripe email ***NOT*** has been sent with ID: ".$number, "deleted");
+			}
 			//OR
-			$e->sendPlain();
-			debug::show("plain text email has been sent with ID".$number);
+			$e = new Email($from, $to, $subject, $body);
+			if($e->sendPlain()) {
+				DB::alteration_message("plain text Silverstripe  email has been sent with ID: ".$number, "created");
+			}
+			else {
+				DB::alteration_message("plain text Silverstripe email has ***NOT*** been sent with ID: ".$number, "deleted");
+			}
+		}
+		else {
+			user_error("make sure to add a valid email - current one is '".$email."' (you can add the email like this: ".$request->getURL()."?email=myemail@test.com", E_USER_WARNING);
 		}
 	}
 

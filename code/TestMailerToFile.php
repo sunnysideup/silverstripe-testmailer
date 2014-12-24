@@ -7,44 +7,64 @@
 
 class TestMailerToFile extends Mailer  {
 
-	protected static $file_to_write_to = "assets/emails.txt";
-		static function set_file_to_write_to ($v) {self::$file_to_write_to = $v;}
+	private static $show_all_details = false;
 
-	protected static $separation_string = "\r\nr\n
-	-------------------------------------------------------------------------------------------------------------------------------------
-	\r\nr\n";
-		static function set_separation_string ($v) {self::$separation_string = $v;}
+	private static $file_to_write_to = "assets/emails.txt";
+
+	private static $separation_string = "
+-------------------------------------------------------------------------------------------------------------------------------------";
+
 	/**
 	 * Send a plain-text email
 	 */
 	function sendPlain($to, $from, $subject, $plainContent, $attachedFiles = false, $customheaders = false) {
-		$string = "\r\n
-~TO: $to ~ \r\n
-~FROM: $from ~ \r\n
-~SUBJECT: $subject ~ \r\n
-~PLAINTEXT: $plainContent ~ \r\n
-~ATTACHEDFILES: $attachedFiles ~ \r\n
-~CUSTOMHEADERS: $customheaders ~";
+		if($this->Config()->get("show_all_details")) {
+			$string = "
+~TO: $to ~
+~FROM: $from ~
+~SUBJECT: $subject ~
+~PLAINTEXT: $plainContent ~
+~ATTACHEDFILES: ".print_r($attachedFiles, 1)." ~
+~CUSTOMHEADERS: ".print_r($customheaders, 1)." ~";
+		}
+		else {
+			$string = "
+~PLAINTEXT: TRUE
+~TO: $to ~
+~FROM: $from ~
+~SUBJECT: $subject ~";
+		}
 		$this->writeToFile($string);
+		return true;
 	}
 
 	/**
 	 * Send a multi-part HTML email
 	 */
 	function sendHTML($to, $from, $subject, $htmlContent, $attachedFiles = false, $customheaders = false, $plainContent = false, $inlineImages = false) {
-		$string = "\r\n
-~TO: $to ~ \r\n
-~FROM: $from ~ \r\n
-~SUBJECT: $subject ~ \r\n
-~HTMLCONTENT: $htmlContent ~ \r\n
-~ATTACHEDFILES: $attachedFiles ~ \r\n
-~CUSTOMHEADERS: $customheaders ~  \r\n
-~PLAINTEXT: $plainContent ~ \r\n
+		if($this->Config()->get("show_all_details")) {
+			$string = "
+~TO: $to ~
+~FROM: $from ~
+~SUBJECT: $subject ~
+~HTMLCONTENT: $htmlContent ~
+~ATTACHEDFILES: ".print_r($attachedFiles, 1)." ~
+~CUSTOMHEADERS: ".print_r($customheaders, 1)." ~
+~PLAINTEXT: $plainContent ~
 ~INLINEIMAGES: $inlineImages ~";
+		}
+		else {
+			$string = "
+~PLAINTEXT: FALSE
+~TO: $to ~
+~FROM: $from ~
+~SUBJECT: $subject ~";
+		}
 		$this->writeToFile($string);
+		return true;
 	}
 
-	function writeToFile($string) {
+	protected function writeToFile($string) {
 		$myFile = Director::baseFolder()."/".self::$file_to_write_to;
 		$fh = fopen($myFile, 'a') or die("can't open file $myFile");
 		$stringData = self::$separation_string.$string;

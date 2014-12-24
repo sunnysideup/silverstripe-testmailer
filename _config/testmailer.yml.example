@@ -1,0 +1,7 @@
+---
+Name: testmailer_routes
+After: 'cms/*','framework/*'
+---
+TestMailerToFile:
+  file_to_write_to: "assets/emails.txt"
+  separation_string: "------------------------------------------------\r\n\r\n"
