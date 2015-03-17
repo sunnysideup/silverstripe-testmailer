@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.net/src" basedir="/var/www/_modules/testmailer/trunk">
+  <namespace name="">
+    <class name="TestMailerToFile" src="code/TestMailerToFile.php" description="author nicolaas [at] sunnysideup.co.nz" xml="classes/TestMailerToFile.xml"/>
+    <class name="TestIfEmailsAreWorking" src="code/TestIfEmailsAreWorking.php" description="author nicolaas [at] sunnysideup .co .nz" xml="classes/TestIfEmailsAreWorking.xml"/>
+  </namespace>
+</index>

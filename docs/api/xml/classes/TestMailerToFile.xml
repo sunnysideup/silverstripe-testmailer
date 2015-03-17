@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="TestMailerToFile" namespace="" name="TestMailerToFile" abstract="false" final="false" start="8" end="75">
+  <file path="/var/www/_modules/testmailer/trunk/docs/en/phpdox/../../../code" file="TestMailerToFile.php" realpath="/var/www/_modules/testmailer/trunk/code/TestMailerToFile.php" size="1937" time="2015-03-14T10:23:56+13:00" unixtime="1426281836" sha1="818fba2245eb1c2af24b3bcde10954ecb8cebf86" relative="code/TestMailerToFile.php"/>
+  <docblock>
+    <description compact="author nicolaas [at] sunnysideup.co.nz"/>
+    <package value="sapphire"/>
+    <subpackage value="email"/>
+  </docblock>
+  <extends full="Mailer" namespace="" name="Mailer"/>
+  <member name="show_all_details" type="{unknown}" default="false" visibility="private" line="10"/>
+  <member name="file_to_write_to" type="string" default="&quot;assets/emails.txt&quot;" visibility="private" line="12"/>
+  <member name="separation_string" type="string" default="&quot;&#13;&#10;-------------------------------------------------------------------------------------------------------------------------------------&quot;" visibility="private" line="14"/>
+  <method name="sendPlain" start="20" end="39" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send a plain-text email"/>
+    </docblock>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="plainContent" byreference="false" type="{unknown}"/>
+    <parameter name="attachedFiles" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="customheaders" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="sendHTML" start="44" end="65" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Send a multi-part HTML email"/>
+    </docblock>
+    <parameter name="to" byreference="false" type="{unknown}"/>
+    <parameter name="from" byreference="false" type="{unknown}"/>
+    <parameter name="subject" byreference="false" type="{unknown}"/>
+    <parameter name="htmlContent" byreference="false" type="{unknown}"/>
+    <parameter name="attachedFiles" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="customheaders" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="plainContent" byreference="false" type="{unknown}" default="false"/>
+    <parameter name="inlineImages" byreference="false" type="{unknown}" default="false"/>
+  </method>
+  <method name="writeToFile" start="67" end="73" abstract="false" final="false" static="false" visibility="protected">
+    <parameter name="string" byreference="false" type="{unknown}"/>
+  </method>
+</class>

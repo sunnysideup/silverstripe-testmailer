@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="TestIfEmailsAreWorking" namespace="" name="TestIfEmailsAreWorking" abstract="false" final="false" start="10" end="52">
+  <file path="/var/www/_modules/testmailer/trunk/docs/en/phpdox/../../../code" file="TestIfEmailsAreWorking.php" realpath="/var/www/_modules/testmailer/trunk/code/TestIfEmailsAreWorking.php" size="1741" time="2015-03-14T10:23:56+13:00" unixtime="1426281836" sha1="0d5a387329e306ccffff7fe19fa22649472ebfbc" relative="code/TestIfEmailsAreWorking.php"/>
+  <docblock>
+    <description compact="author nicolaas [at] sunnysideup .co .nz"/>
+  </docblock>
+  <extends full="Controller" namespace="" name="Controller"/>
+  <method name="index" start="12" end="50" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="request" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="OR" line="38"/>
+    </inline>
+  </method>
+</class>
