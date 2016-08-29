@@ -1,22 +1,27 @@
 {
-	"name": "sunnysideup/testmailer",
-	"type": "silverstripe-module",
-	"description": "add a mail to file mail class, so that you can test e-mail functionality in your silverstripe website without mailing anyone",
-	"homepage": "http://www.silverstripe-webdevelopment.com",
-	"keywords": ["testmailer", "silverstripe", "email", "mail", "mailer", "smtp"],
-	"license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
-	"authors":[
-		{
-			"name": "Nicolaas Francken",
-			"homepage": "https://github.com/sunnysideup",
-			"email" : "modules@sunnysideup.co.nz",
-			"role" : "lead developer"
-		}
-	],
-	"require":{
-		"silverstripe/framework": "~3.1"
-	},
-	"extra": {
-		"installer-name": "testmailer"
-	}
+    "name": "sunnysideup/testmailer",
+    "type": "silverstripe-module",
+    "description": "add a mail to file mail class, so that you can test e-mail functionality in your silverstripe website without mailing anyone",
+    "keywords": [
+        "testmailer",
+        "silverstripe",
+        "email",
+        "mail",
+        "mailer",
+        "smtp"
+    ],
+    "license": "Sunny Side Up (BSD-3-Clause and CUSTOM)",
+    "authors": [
+        {
+            "name": "Nicolaas Francken",
+            "email": "modules@sunnysideup.co.nz",
+            "role": "lead developer"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "~3.1"
+    },
+    "extra": {
+        "installer-name": "testmailer"
+    }
 }
