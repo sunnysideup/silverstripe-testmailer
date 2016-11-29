@@ -4,6 +4,6 @@
  **/
 
 
-if(defined("use_testmailer")) {
-	Email::set_mailer(new TestMailerToFile);
+if (defined("use_testmailer")) {
+    Email::set_mailer(new TestMailerToFile);
 }

@@ -3,8 +3,10 @@
     "type": "silverstripe-module",
     "description": "add a mail to file mail class, so that you can test e-mail functionality in your silverstripe website without mailing anyone",
     "keywords": [
+        "Silverstripe-CMS",
+        "CMS",
+        "Silverstripe",
         "testmailer",
-        "silverstripe",
         "email",
         "mail",
         "mailer",
@@ -19,7 +21,8 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "~3.1"
+        "silverstripe/framework": "~3.1",
+        "silverstripe/cms": "~3.1"
     },
     "extra": {
         "installer-name": "testmailer"
