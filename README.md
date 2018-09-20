@@ -52,6 +52,7 @@ We recommend that you:
   2. remove the .example extension,
   3. delete the lines you do not care about, and
   4. adjust the configurations that you would like to use.
+  5. add `define('use_testmailer', true)` to `_ss_environment.ss`,  
 
 
 ## Contributing
